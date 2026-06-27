@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Rainbow Rays Mega-Hub",
+  "description": "24/7 AI-driven business ecosystem for Rainbow Rays. Features real-time Twin Cities dispatch, client/contractor portals, and motivational self-acceptance intelligence.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,1 +1,65 @@
 @import "tailwindcss";
+
+@theme {
+  --color-dark-purple: #2e0249;
+  --bg-app: #020205;
+  --rainbow-gradient: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+}
+
+@layer utilities {
+  .bg-shiny-black {
+    background: radial-gradient(circle at 50% 0%, #1a1a2e 0%, #020205 100%);
+    position: relative;
+  }
+  
+  .bg-shiny-black::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.15;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+
+  .rainbow-glow {
+    position: relative;
+  }
+
+  .rainbow-glow::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+    background-size: 400% 400%;
+    z-index: -1;
+    filter: blur(10px);
+    animation: rainbow-animation 15s ease infinite;
+    border-radius: inherit;
+    opacity: 0.5;
+  }
+
+  .rainbow-border {
+    border: 1px solid transparent;
+    background: linear-gradient(#020205, #020205) padding-box,
+                linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff) border-box;
+    background-size: 400% 400%;
+    animation: rainbow-animation 15s ease infinite;
+  }
+
+  @keyframes rainbow-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animate-gradient-slow {
+    background-size: 200% 200%;
+    animation: rainbow-animation 8s ease infinite;
+  }
+}
+
+body {
+  background-color: var(--bg-app);
+  color: white;
+}
